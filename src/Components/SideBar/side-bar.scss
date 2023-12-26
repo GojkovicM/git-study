@@ -1,0 +1,26 @@
+#sidebar{
+    background-color: #202b3b;
+    height: 100vh;
+    margin: 12px 0 0 5px;
+    border-radius: 18px 18px 0 0 ;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+
+    img{
+        height: 100px;
+        margin-top: 20px;
+    }
+
+
+    .buttons img{
+        height: 20px;
+        margin-top: 25px;
+    }
+}
+
+
+
