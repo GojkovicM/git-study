@@ -1,6 +1,6 @@
 import React from "react";
 import './header.scss'
-import { Link } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 
 function Header() {
     return (  
@@ -10,7 +10,7 @@ function Header() {
             </div>
             <div>
                 <img src="https://www.svgrepo.com/show/532362/user.svg" alt="" />
-                <Link to="/LogIn"><button>Login</button></Link>/<Link to="SignUp"><button>Register</button></Link>
+                <NavLink to="/LogInPage"><button>Login</button></NavLink>/<NavLink to="SignUpPage"><button>Register</button></NavLink>
             </div>
 
         </div>
