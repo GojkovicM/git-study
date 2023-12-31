@@ -1,25 +1,30 @@
-import React, { useContext } from "react";
-import './search.scss'
+import React, { useContext, useEffect } from "react";
+import "./search.scss";
 import { useState } from "react";
-import { fetchWeather } from "../../Api/service";
-import { fetchWeatherContext } from "../../Api/service";
+
 import { WeatherContext } from "../../store/weather";
+import { fetchWeekWeather } from "../../Api/service";
 
 function Search() {
+  const [search, setSearch] = useState("Belgrade");
 
-    const [search, setSearch] = useState("");
+  const { fetchWeatherContext, fetchWeekWeatherContext } = useContext(WeatherContext);
 
-    const {fetchWeatherContext} = useContext(WeatherContext)
-    
-    
+  useEffect(() => {
+    fetchWeatherContext();
+    fetchWeekWeatherContext()
+  }, []);
 
-
-    return (  
-        <div id="Search">
-            <input type="text" placeholder="search" onChange={(e) => setSearch(e.target.value)}/>
-            <button onClick={() => fetchWeatherContext(search)}>klik</button>
-        </div>
-    );
+  return (
+    <div id="Search">
+      <input
+        type="text"
+        placeholder="search"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <button onClick={() => fetchWeatherContext(search)}>klik</button>
+    </div>
+  );
 }
 
-export default Search; 
+export default Search;
