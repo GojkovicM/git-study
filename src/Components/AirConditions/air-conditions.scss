@@ -1,7 +1,48 @@
-#air-conditions{
-    background-color: #202b3b;
-    height: 230px;
-    border-radius: 20px;
-    margin-top: 25px;
-    // width: 800px;
+#air-conditions {
+  background-color: #202b3b;
+  height: 230px;
+  border-radius: 20px;
+  margin-top: 25px;
+
+  .wrapperConditions {
+    display: flex;
+    // justify-content: space-evenly;
+    text-align: center;
+    padding-top: 40px;
+}
+    
+   
+
+  .visibility {
+    border-left: 1px solid black;
+    width: 25%;
+
+    
+  }
+
+  .wind{
+    border-left: 1px solid black;
+    width: 25%;
+  }
+
+  .pressure {
+    border-left: 1px solid black;
+   width: 25%;
+  }
+
+  .humidity {
+    width: 25%;
+  }
+
+  h3 {
+    padding-bottom: 50px;
+  }
+
+  p {
+    font-size: 40px;
+  }
+
+  span {
+    font-size: 20px;
+  }
 }

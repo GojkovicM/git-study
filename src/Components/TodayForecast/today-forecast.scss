@@ -3,5 +3,44 @@
     height: 230px;
     border-radius: 20px;
     margin-top: 25px;
-    // width: 800px;
+    
+
+    .wrapForecast{
+        display: flex;
+        text-align: center;
+        padding-top: 40px;
+
+        div:first-child{
+            border-right: 1px solid black;
+        }
+
+        div:nth-child(2){
+            border-right: 1px solid black;
+        }
+
+        div:nth-child(3){
+            border-right: 1px solid black;
+        }
+
+
+        div{
+            width: 25%;
+
+        }
+          
+        h3 {
+            padding-bottom: 20px;
+          }
+        
+          p {
+            font-size: 20px;
+          }
+        
+          span {
+            font-size: 20px;
+          }
+        
+    }
+
+    
 }
