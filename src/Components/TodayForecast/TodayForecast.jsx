@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./today-forecast.scss";
-import { fetchWeather } from "../../Api/service";
+
 import { WeatherContext } from "../../store/weather";
 
 function TodayForecast() {
