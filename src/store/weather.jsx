@@ -1,20 +1,19 @@
 import { createContext } from "react";
 import { useState } from "react";
-import { fetchWeather, fetchWeekWeather } from "../Api/service";
+import { fetchWeather, fetchWeekWeather, getLocation } from "../Api/service";
 
 export const WeatherContext = createContext({
   weather: undefined,
   weekWeather: undefined,
   fetchWeatherContext: () => {},
   fetchWeekWeatherContext: () => {},
+  
 });
 
 const WeatherHandler = ({ children }) => {
   const [weatherData, setWeatherData] = useState();
   const [weekWeatherData, setWeekWeatherData] = useState();
-
   
- 
   
   
 
@@ -37,10 +36,12 @@ const WeatherHandler = ({ children }) => {
  }
 ;
 
+  
+
 
   return (
     <WeatherContext.Provider
-      value={{ weather: weatherData, weekWeather: weekWeatherData ,fetchWeatherContext, fetchWeekWeatherContext}}
+      value={{ weather: weatherData, weekWeather: weekWeatherData ,fetchWeatherContext, fetchWeekWeatherContext, }}
     >
       {children}
     </WeatherContext.Provider>

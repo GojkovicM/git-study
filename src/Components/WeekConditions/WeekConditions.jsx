@@ -5,7 +5,7 @@ import { WeatherContext } from "../../store/weather";
 function WeekConditions() {
   const { weekWeather } = useContext(WeatherContext);
 
-  console.log(weekWeather);
+ 
 
   return (
     <div id="WeekConditions">
