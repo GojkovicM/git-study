@@ -20,6 +20,7 @@ export const fetchWeather = async (city) => {
 };
 
 export const fetchWeekWeather = async (city) => {
+  
   try {
     const res = await axios.get(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`

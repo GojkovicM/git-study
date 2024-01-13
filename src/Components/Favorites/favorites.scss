@@ -1,8 +1,17 @@
 #Favorites{
 
-    img{
-        height: 10px;
+    
+    ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        list-style-type: none;
+
     }
+
+   
 
     button{
         background-color: #202b3b;
@@ -11,9 +20,9 @@
         height: 30px;
         // width: 130px;
         border-radius: 5px;
-        margin: 20px 0 0 0;
         font-size: 12px;
         padding: 10px;
+        
     }
     
 

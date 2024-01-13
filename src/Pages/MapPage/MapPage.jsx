@@ -1,12 +1,12 @@
 import React from "react";
 import './map-page.scss'
-import Header from "../../Components/Header/Header";
+import CityMap from "../../Components/Map/CityMap";
 
 function MapPage() {
     return (  
         <div id="MapPage">
+            <CityMap></CityMap>
             
-            Map Page
             </div>
     );
 }

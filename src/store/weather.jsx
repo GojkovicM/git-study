@@ -7,15 +7,19 @@ export const WeatherContext = createContext({
   weekWeather: undefined,
   fetchWeatherContext: () => {},
   fetchWeekWeatherContext: () => {},
-  
+  handleFavoriteCity: () => {},
+  favorite: [],
+  removeFavorite: () => {},
+  handleSelectedFavorite: () => {},
+  selected: "",
+  setSelected: () => {},
 });
 
 const WeatherHandler = ({ children }) => {
   const [weatherData, setWeatherData] = useState();
   const [weekWeatherData, setWeekWeatherData] = useState();
-  
-  
-  
+  const [favoriteCity, setFavoriteCity] = useState([]);
+  const [selectedFavorite, setSelectedFavorite] = useState("Belgrade");
 
   const fetchWeatherContext = async (city) => {
     try {
@@ -27,21 +31,43 @@ const WeatherHandler = ({ children }) => {
   };
 
   const fetchWeekWeatherContext = async (city) => {
-    try{
+    try {
       const updateWeekWeather = await fetchWeekWeather(city);
-      setWeekWeatherData(updateWeekWeather) 
-    } catch(error) {
-    console.log(error);
-   }
- }
-;
+      setWeekWeatherData(updateWeekWeather);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleFavoriteCity = (city) => {
+    if (favoriteCity.includes(city)) {
+      favoriteCity.splice(favoriteCity.indexOf(city), 1);
+    } else {
+      setFavoriteCity((prevFavorites) => [...prevFavorites, city]);
+    }
+  };
 
-  
+  const removeFavorite = (city) => {
+    favoriteCity.splice(favoriteCity.indexOf(city), 1);
+  };
 
+  const handleSelectedFavorite = (favCity) => {
+    setSelectedFavorite(favCity);
+  };
 
   return (
     <WeatherContext.Provider
-      value={{ weather: weatherData, weekWeather: weekWeatherData ,fetchWeatherContext, fetchWeekWeatherContext, }}
+      value={{
+        weather: weatherData,
+        weekWeather: weekWeatherData,
+        fetchWeatherContext,
+        fetchWeekWeatherContext,
+        handleFavoriteCity,
+        favorite: favoriteCity,
+        removeFavorite,
+        handleSelectedFavorite,
+        selected: selectedFavorite,
+        setSelected: setSelectedFavorite
+      }}
     >
       {children}
     </WeatherContext.Provider>

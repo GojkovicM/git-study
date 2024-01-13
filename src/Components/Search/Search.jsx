@@ -10,11 +10,10 @@ import { getLocation } from "../../Api/service";
 
 function Search() {
   const [search, setSearch] = useState("");
-  const [location, setLocation] = useState("");
+  // const [location, setLocation] = useState("Beograd");
   const [error, setError] = useState("");
-  
 
-  const { fetchWeatherContext, fetchWeekWeatherContext } =
+  const { fetchWeatherContext, fetchWeekWeatherContext, selected, setSelected } =
     useContext(WeatherContext);
 
   const handleSelection = (selected) => {
@@ -22,38 +21,42 @@ function Search() {
       .then((results) => getLatLng(results[0]))
       .then(async (latLng) => {
         const currentLocation = await getLocation(latLng.lat, latLng.lng);
-        setLocation(currentLocation?.city);
+        setSelected(currentLocation?.city);
         setSearch("");
       })
       .catch((error) => console.error("Error", error));
   };
 
-  const getUserLocation = () => {
-    if (!navigator.geolocation) {
-      setError("Zabranjeno");
-    } else {
-      navigator.geolocation.getCurrentPosition(async (position) => {
-        const { latitude, longitude } = position.coords;
-        const userLocation = await getLocation(latitude, longitude);
-        setLocation(userLocation?.city);
-      });
-    }
-  };
+  // const getUserLocation = () => {
+  //   if (!navigator.geolocation) {
+  //     setError("Zabranjeno");
+      
+  //   } else {
+  //     navigator.geolocation.getCurrentPosition(async (position) => {
+  //       const { latitude, longitude } = position.coords;                            //destructuring
+  //       const userLocation = await getLocation(latitude, longitude);
+  //       setLocation(userLocation?.city);
+  //     });
+  //   }
+  // };
 
   const handleChange = (city) => {
     setSearch(city);
   };
 
+  
+ 
   useEffect(() => {
-    if (location) {
-      fetchWeatherContext(location);
-      fetchWeekWeatherContext(location);
+    if (selected) {
+      fetchWeatherContext(selected);
+      fetchWeekWeatherContext(selected);
     }
-  }, [location]);
+  }, [selected]);
 
-  useEffect(() => {
-    getUserLocation();
-  }, []);
+
+  // useEffect(() => {
+  //   getUserLocation();
+  // }, []);
 
   return (
     <div id="Search">
@@ -79,14 +82,20 @@ function Search() {
                 // inline style for demonstration purpose
                 const style = suggestion.active
                   ? {
-                      backgroundColor: "#fafafa",
+                      backgroundColor: "#202b3b",
                       cursor: "pointer",
-                      color: "black",
+                      color: "white",
+                      width: "300px",
+                      padding: "5px",
+                      border: "1px solid black",
                     }
                   : {
-                      backgroundColor: "#ffffff",
+                      backgroundColor: "#202b3b",
                       cursor: "pointer",
-                      color: "black",
+                      color: "white",
+                      width: "300px",
+                      padding: "5px",
+                      border: "1px solid black",
                     };
                 return (
                   <div
@@ -104,8 +113,8 @@ function Search() {
         )}
       </PlacesAutocomplete>
 
-{/*    
-      <button>klik</button>  */}
+      {/* <button onClick={getUserLocation}>klik</button> */}
+      <h1>{error}</h1>
     </div>
   );
 }
