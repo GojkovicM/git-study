@@ -1,12 +1,13 @@
 import React from "react";
 import './favorites-page.scss'
-import Header from "../../Components/Header/Header";
+import Favorites from "../../Components/Favorites/Favorites";
 
 function FavoritesPage() {
     return (  
         <div id="FavoritesPage">
+          
+            <Favorites></Favorites>
            
-            Favorites Page
             </div>
     );
 }

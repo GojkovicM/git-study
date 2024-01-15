@@ -10,9 +10,9 @@ const Landing = () => {
     <div>
       <Search></Search>
       <CityTemperature></CityTemperature>
-      <Favorites></Favorites>
       <TodayForecast></TodayForecast>
       <AirConditions></AirConditions>
+      
     </div>
   );
 };

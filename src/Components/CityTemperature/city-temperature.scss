@@ -1,37 +1,47 @@
-#CityTemperature{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    
-   
-    
-    p{
-        font-size: 10px;
-        font-weight:lighter;
-        color: rgba(255, 255, 255, 0.322);
-        margin: 5px 0 5px 0;
-        
-        
-    }
-    
-    .CityWrap{
-        padding-left: 10px;
-       
-        
-    }
-    
-    img{
-        height: 100px;
-        padding-right: 10px;
-        width: 100px;
+#CityTemperature {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 
+  p {
+    font-size: 10px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.322);
+    margin: 5px 0 5px 0;
+  }
+
+  .CityWrap {
+    padding-left: 10px;
+
+    button {
+      background-color: #202b3b;
+      border: none;
+      color: white;
+      height: 30px;
+      // width: 130px;
+      border-radius: 5px;
+      margin: 20px 0 0 0;
+      font-size: 12px;
+      padding: 10px;
+
+      .isFavorite{
+        width: 20px;
+        height: 10px;
+        background-color: white;
+      }
+
+      img{
+        width: 20px;
+        height: 10px;
+      }
+
+      
     }
-    
+  }
+
+  img {
+    height: 100px;
+    padding-right: 10px;
+    width: 100px;
+  }
 }
-
-
-
-
-
-
-
